@@ -13,6 +13,11 @@ i {
     font-size: smaller;
 }
 
+input {
+    border: 1px solid rgb(124, 117, 117);
+    border-radius: 7px;
+}
+
 /* LOG IN PAGE */
 .fullscreen {
   position: fixed;
@@ -35,7 +40,7 @@ i {
     font-size: 20px;
     z-index: 1;
     background: whitesmoke;
-    grid-template-columns: 40% 30% 30%;
+    grid-template-columns: 20% 60% 20%;
     grid-template-rows: 20% 50% 30%;
 }
   
@@ -46,7 +51,7 @@ i {
         grid-row: 2;
         display: grid;
         grid-template-columns: auto;
-        grid-template-rows: 40% 15% 15% 20%;
+        grid-template-rows: 40% 15% 15% 30%;
     }
         .loginWelcome {
             grid-row: 1;
@@ -60,16 +65,34 @@ i {
                 font-family: "Poppins", sans-serif;
                 color: #393939;
             }
-            .loginText2 {
+            .loginText2Box {
                 grid-row: 3;
                 text-align: center;
                 font-family: "Poppins", sans-serif;
                 color: #393939;
+                width: 100%;
+                height: 100%;
+                display: grid;
+                grid-template-columns: 20% 60% 20%;
+                grid-template-rows: auto;
             }
+                .loginText2 {
+                    height: 100%;
+                    width: 100%;
+                    grid-column: 2;
+                }
 
-        .googleLogin {
+        .oauthContainer {
             grid-row: 4;
-            height: 50%;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 25% 50% 25%;
+            grid-template-rows: auto;
+        }
+        .googleLogin {
+            grid-column: 2;
+            height: 30%;
             width: 100%;
         }
         h1.loginWelcome {
@@ -190,6 +213,7 @@ nav a {
   grid-template-rows: 8% 92%;
   grid-gap: 1rem;
 }
+
 .navBarContainer {
   grid-row: 1;
   width: 100%;
@@ -235,3 +259,105 @@ nav a {
         border: 1px solid whitesmoke;
         border-radius: 7px;
     }
+
+.addListingContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: auto;
+}
+    .addListingForm {
+        grid-column: 2;
+        width: 100%;
+        height: 95%;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 15% 5% 5% 5% 15% 5% 5% 5% 5% 5% 15% 3% 7%;
+    }   
+        h1.createListing {
+            grid-row: 1;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: xxx-large;
+            font-weight: lighter;
+            font-family: "Poppins", sans-serif;
+        }
+        .itemNameLabel {
+            line-height: 3;
+            font-family: "Poppins", sans-serif;
+            text-align: left;
+            font-size: 50%;
+            grid-row: 2;
+            width: 100%;
+            height: 100%;
+        }
+        .itemName {
+            grid-row: 3;
+            width: 100%;
+            height: 100%;
+        }
+        .itemDescriptionLabel {
+            line-height: 3;
+            font-size: 50%;
+            font-family: "Poppins", sans-serif;
+            text-align: left;
+            grid-row: 4;
+            width: 100%;
+            height: 100%;
+        }
+        .itemDescription {
+            grid-row: 5;
+            width: 100%;
+            height: 100%;
+        }
+        .selectCategoryLabel {
+            line-height: 3;
+            font-size: 50%;
+            font-family: "Poppins", sans-serif;
+            text-align: left;
+            grid-row: 6;
+            width: 100%;
+            height: 100%;
+        }
+        .selectCategory {
+            grid-row: 7;
+            width: 100%;
+            height: 100%;
+        }
+        .selectConditionLabel {
+            line-height: 3;
+            font-size: 50%;
+            font-family: "Poppins", sans-serif;
+            text-align: left;
+            grid-row: 8;
+            width: 100%;
+            height: 100%;
+        }
+        .selectCondition {
+            grid-row: 9;
+            width: 100%;
+            height: 100%;
+        }
+        .estimatedValueLabel {
+            line-height: 3;
+            font-size: 50%;
+            font-family: "Poppins", sans-serif;
+            text-align: left;
+            grid-row: 10;
+            width: 100%;
+            height: 100%;
+        }
+        .estimatedValue {
+            grid-row: 11;
+            width: 100%;
+            height: 100%;
+        }
+        .createListingButton {
+            grid-row: 13;
+            width: 100%;
+            height: 100%;
+            font-family: "Poppins", sans-serif;
+            font-size: large;
+        }

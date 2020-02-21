@@ -28,19 +28,23 @@ class LoginPage extends Component {
                 <i> Charter your next barter with eaze </i>
                 </div>
 
+        <div className="loginText2Box">
             <div className="loginText2">
-                ↠ Click below to sign in or create an account with Google™ 
+              ↠ Click below to sign in or create an account with Google™ 
             </div>
+          </div>
 
-        <GoogleLogin
-          className="googleLogin"
-          clientId="382771863992-hu7olpe3sfiae910a1urf4orija474oj.apps.googleusercontent.com"
-          buttonText="Sign in with Google"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          cookiePolicy={'single_host_origin'}
-          fetchBasicProfile="true"
-        />
+        <div className="oauthContainer">
+          <GoogleLogin
+            className="googleLogin"
+            clientId="382771863992-hu7olpe3sfiae910a1urf4orija474oj.apps.googleusercontent.com"
+            buttonText="Sign in with Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+            fetchBasicProfile="true"
+          />
+        </div>
 
       </div>
     );

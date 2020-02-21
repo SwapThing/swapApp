@@ -4,19 +4,19 @@ const AddListing = (props) => {
     return (
         <div className="addListingContainer">
             <form className="addListingForm" action="/signup" method="POST">
-        <h1>Create Listing</h1>
+        <h1 className="createListing">Create Listing</h1>
 
-        <label>Item:</label>
-        <input class="itemName" type="text" name="itemName" placeholder="Enter item name..." required/>
+        <label className="itemNameLabel">Give your listing a name ↡</label>
+        <input className="itemName" type="text" name="itemName" placeholder="Enter item name..." required/>
             <br/>
 
-        <label>Item Description:</label>
-        <input class="itemDescription" id="entrybox" name="itemDescription" placeholder="Enter item description..." required/>
+        <label className="itemDescriptionLabel">Describe the item ↡</label>
+        <input className="itemDescription" id="entrybox" name="itemDescription" placeholder="Enter item description..." required/>
             <br/>
             
-        <label>Select Category:</label>
-        <select id="selectCategory" class="selectCategory" name="selectCategory" required>
-            <option value="" hidden disabled selected>Select category:</option>
+        <label className="selectCategoryLabel">Select Category ↡</label>
+        <select id="selectCategory" className="selectCategory" name="selectCategory" required>
+            <option value="" hidden disabled selected>Select Category ♲ </option>
             <option value="Home">Home</option>
             <option value="Toys">Toys</option>
             <option value="Auto">Auto</option>
@@ -27,9 +27,9 @@ const AddListing = (props) => {
             <option value="Jewelry">Jewelry</option>
         </select> <br/>
 
-        <label>Select Condition:</label>
-        <select id="selectCondition" class="selectCondition" name="selectCondition" required>
-            <option value="" hidden disabled selected>Select Item Condition:</option>
+        <label className="selectConditionLabel">Describe item condition ↡</label>
+        <select id="selectCondition" className="selectCondition" name="selectCondition" required>
+            <option value="" hidden disabled selected>Select Item Condition ♲</option>
             <option value="Very Used">Very Used</option>
             <option value="Lightly Used">Lightly Used</option>
             <option value="Like New">Like New</option>
@@ -38,11 +38,11 @@ const AddListing = (props) => {
         </select> 
         <br/>
         
-        <label>Enter estimated value:</label>
-        <input class="estimatedValue" type="number" name="estimatedValue" placeholder="Enter estimated value..." required/>
+        <label className="estimatedValueLabel">Enter estimated value ↡</label>
+        <input className="estimatedValue" type="number" name="estimatedValue" placeholder="Enter estimated value..." required/>
 
         <br/>
-        <input class="createListingButton" id="createListingButton" type="submit" value="Create Listing!" />
+        <input className="createListingButton" id="createListingButton" type="submit" value="Create Listing!" />
     </form>
         </div>
     )
