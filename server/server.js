@@ -15,17 +15,17 @@ const formData = require('express-form-data');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(formData.parse())
+app.use(formData.parse());
 
 //getting all the feed items
-app.get('/feed', itemController.feed, (req, res) =>{
+app.get('/feed', itemController.feed, (req, res) => {
   res.status(200).json(res.locals.feed);
-})
+});
 
 //creating a new item
-app.post('/addListing/:user_id', itemController.addListing,(req, res)=>{
+app.post('/addListing/:user_id', itemController.addListing, (req, res) => {
   res.status(200).send('Has been successfully added!!');
-})
+});
 
 //post request to add images to cloudinary and saving it to the database
 app.post(
@@ -39,7 +39,7 @@ app.post(
 );
 
 app.get('/validate', userController.verifyUser, (req, res, next) => {
-  res.status(200);
+  res.status(200).json(res.locals.users);
 });
 
 app.get('/', (req, res, next) => {
