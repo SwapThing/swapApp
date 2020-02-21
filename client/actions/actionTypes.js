@@ -17,3 +17,5 @@ export const CURRENT_USER = 'CURRENT_USER';
 export const FETCHING_STARTED = 'FETCHING_STARTED';
 
 export const FETCHING_FAIL = 'FETCHING_FAIL';
+
+export const VERIFY_USER = 'VERIFY_USER';

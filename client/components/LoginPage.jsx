@@ -4,11 +4,26 @@ import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
 
 class LoginPage extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
+  // async responseGoogle(response) {
+  //   const idToken = response.tokenId;
+  //   await axios.get('/validate', {
+  //     headers: {
+  //       tokenType: 'Bearer',
+  //       authorization: idToken
+  //     }
+  //   })
+  //   .then(function(response) {
+  //     console.log('this is response within axios to get validate:', response)
+  //     verifyUser(response);
+
+  //   })
+  //   .then(function(error) {
+  //     console.log('error message within axios get:', error)
+  //   });
+  // };
+
+  render(props) {
 
     const responseGoogle = response => {
       const idToken = response.tokenId;
@@ -20,7 +35,7 @@ class LoginPage extends Component {
       })
       .then(function(response) {
         console.log('this is response within axios to get validate:', response)
-        props.verifyUserAsyncThunk();
+        this.verifyUser(response);
       })
       .then(function(error) {
         console.log('error message within axios get:', error)
@@ -57,8 +72,8 @@ class LoginPage extends Component {
             clientId="382771863992-hu7olpe3sfiae910a1urf4orija474oj.apps.googleusercontent.com"
             buttonText="Sign in with Google"
 
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
             cookiePolicy={'single_host_origin'}
             fetchBasicProfile="true"
           />

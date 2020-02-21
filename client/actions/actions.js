@@ -29,6 +29,12 @@ export const barterDisplayToggle = () => ({
 });
 
 
+export const verifyUser = (id, user_name, email, googleId) => ({
+    type: types.VERIFY_USER,
+    payload: { currentName: user_name, userEmail: email, googleId: googleId, userId: id}
+
+})
+
 //below is the grab information with fetch, handle thunk async
 export const verifyUserAsyncThunk = () => {
     console.log('Coming from inside actions for verifyUser')

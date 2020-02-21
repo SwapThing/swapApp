@@ -245,6 +245,9 @@ nav a {
         border: 1px solid whitesmoke;
         border-radius: 7px;
         /* box-shadow: 1px 1px 1px; */
+        text-align: center;
+        line-height: 3;
+        font-family: "Poppins", sans-serif;
     }
 
 .userItemsContainer {
@@ -262,6 +265,9 @@ nav a {
         height: 100%;
         border: 1px solid whitesmoke;
         border-radius: 7px;
+        text-align: center;
+        line-height: 3;
+        font-family: "Poppins", sans-serif;
     }
 
 .addListingContainer {
@@ -365,3 +371,9 @@ nav a {
             font-family: "Poppins", sans-serif;
             font-size: large;
         }
+
+    .barterContainer {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        font-size: large;
+    }

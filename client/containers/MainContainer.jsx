@@ -37,6 +37,7 @@ const mapDispatchToProps = dispatch => ({
   barterDisplayToggle: () => dispatch(actions.barterDisplayToggle()),
 
   //below is from swap reducer
+  verifyUser: (response) => dispatch(actions.verifyUser(response.data[0].id, response.data[0].user_name, response.data[0].email, response.data[0].googleid)),
   verifyUserAsyncThunk: () => dispatch(actions.verifyUserAsyncThunk()),
 });
 
@@ -51,6 +52,8 @@ class MainContainer extends Component {
                         loginDisplayToggle={this.props.loginDisplayToggle}
                         loginDisplayTog={this.props.loginDisplayTog}
                         signupDisplayToggle={this.props.signupDisplayToggle}
+
+                        verifyUser={this.props.verifyUser}
                         verifyUserAsyncThunk={this.props.verifyUserAsyncThunk}
                      />
                      </div>

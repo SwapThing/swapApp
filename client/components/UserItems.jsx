@@ -6,7 +6,7 @@ const UserItems = (props) => {
 
     for (let i = 0; i < 5; i++) {
         userItemsHolder.push( 
-            <div className="userItem"> { i } </div>
+            <div className="userItem"> Barter deez! </div>
         )
     }
     return (
