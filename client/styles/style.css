@@ -95,6 +95,10 @@ input {
             height: 30%;
             width: 100%;
         }
+            .googleLoginPlugin {
+                height: 100%;
+                width: 100%;
+            }
         h1.loginWelcome {
             font-size: 90px;
             text-align: center;

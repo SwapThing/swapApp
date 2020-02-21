@@ -9,6 +9,7 @@ class LoginPage extends Component {
   }
 
   render() {
+
     const responseGoogle = response => {
       const idToken = response.tokenId;
       axios.get('/validate', {
@@ -16,6 +17,13 @@ class LoginPage extends Component {
           tokenType: 'Bearer',
           authorization: idToken
         }
+      })
+      .then(function(response) {
+        console.log('this is response within axios to get validate:', response)
+        props.verifyUserAsyncThunk();
+      })
+      .then(function(error) {
+        console.log('error message within axios get:', error)
       });
     };
 
@@ -35,15 +43,26 @@ class LoginPage extends Component {
           </div>
 
         <div className="oauthContainer">
+          {/* <button className="googleLogin" 
+          onClick={() => {
+              console.log('google Login has been clicked!')
+              this.props.verifyUserAsyncThunk()}}
+              > */}
           <GoogleLogin
+            // onClick={() => {
+            //   console.log('google Login has been clicked!')
+            //   props.verifyUserAsyncThunk()}}
+            // className="googleLoginPlugin"
             className="googleLogin"
             clientId="382771863992-hu7olpe3sfiae910a1urf4orija474oj.apps.googleusercontent.com"
             buttonText="Sign in with Google"
+
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={'single_host_origin'}
             fetchBasicProfile="true"
           />
+          {/* </button> */}
         </div>
 
       </div>

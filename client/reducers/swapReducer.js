@@ -2,7 +2,10 @@ import * as types from '../actions/actionTypes';
 
 const initialState = { 
     isLoggedIn: false,
-    currentUser: " ",
+    currentName: "",
+    userId: -1,
+    googleId: -1,
+    userEmail: "",
 }
 
 const swapReducer = ( state = initialState, action) => {
@@ -18,12 +21,20 @@ const swapReducer = ( state = initialState, action) => {
         // }
 
         case types.CURRENT_USER: {
-            let { isLoggedIn, currentUser } = state;
-            
-            isLoggedIn = true;
+            console.log('action.payload.userInfo within swapReducer:', action.payload.userInfo)
+            let { currentName,  userId, googleId, userEmail } = state;
+
+            currentName = action.payload.userInfo.user_name;
+            userId = action.payload.userInfo.userId;
+            googleId = action.payload.userInfo.googleId;
+            userEmail = action.payload.userInfo.email;
+
             return {
                 ...state,
-                isLoggedIn,
+                currentName,
+                userId,
+                googleId,
+                userEmail
             }
         }
 
@@ -31,3 +42,5 @@ const swapReducer = ( state = initialState, action) => {
             return state;
     }
 }
+
+export default swapReducer;
