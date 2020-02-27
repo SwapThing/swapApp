@@ -8,17 +8,24 @@ import AddListing from '../components/AddListing.jsx';
 import TopNavBar from '../components/topNavBar.jsx';
 import LoginPage from '../components/loginPage.jsx';
 import Feed from '../components/Feed.jsx';
+import { SSM } from 'aws-sdk';
 
 // import SwapContainer from "./SwapContainer.jsx";
 
 const mapStateToProps = state => ({
-  //toggles for rendering based off of navBar
+  //toggles for rendering 
   loginDisplayTog: state.rendering.loginDisplayTog,
   signupDisplayTog: state.rendering.signupDisplayTog,
   feedDisplayTog: state.rendering.feedDisplayTog,
   addListingTog: state.rendering.addListingTog,
   userItemsDisplayTog: state.rendering.userItemsDisplayTog,
-  barterDisplayTog: state.rendering.barterDisplayTog
+  barterDisplayTog: state.rendering.barterDisplayTog,
+
+  //below is for swap
+  currentName: state.swap.currentName,
+  userId: state.swap.userId,
+  googleId: state.swap.googleId,
+  userEmail: state.swap.userEmail,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -27,7 +34,11 @@ const mapDispatchToProps = dispatch => ({
   feedDisplayToggle: () => dispatch(actions.feedDisplayToggle()),
   addListingToggle: () => dispatch(actions.addListingToggle()),
   userItemsDisplayToggle: () => dispatch(actions.userItemsDisplayToggle()),
-  barterDisplayToggle: () => dispatch(actions.barterDisplayToggle())
+  barterDisplayToggle: () => dispatch(actions.barterDisplayToggle()),
+
+  //below is from swap reducer
+  verifyUser: (response) => dispatch(actions.verifyUser(response.data[0].id, response.data[0].user_name, response.data[0].email, response.data[0].googleid)),
+  verifyUserAsyncThunk: () => dispatch(actions.verifyUserAsyncThunk()),
 });
 
 class MainContainer extends Component {
@@ -41,6 +52,9 @@ class MainContainer extends Component {
                         loginDisplayToggle={this.props.loginDisplayToggle}
                         loginDisplayTog={this.props.loginDisplayTog}
                         signupDisplayToggle={this.props.signupDisplayToggle}
+
+                        verifyUser={this.props.verifyUser}
+                        verifyUserAsyncThunk={this.props.verifyUserAsyncThunk}
                      />
                      </div>
             )

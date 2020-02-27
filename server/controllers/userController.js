@@ -29,7 +29,7 @@ userController.verifyUser = (req, res, next) => {
       .then(data => {
         exists = data.rows[0].exists;
         if (exists === false) {
-          db.query(query2)
+          db.query(query2, values)
             .then(data => {
               res.locals.users = data.rows;
               next();

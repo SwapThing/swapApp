@@ -2,7 +2,10 @@ import * as types from '../actions/actionTypes';
 
 const initialState = { 
     isLoggedIn: false,
-    currentUser: " ",
+    currentName: "",
+    userId: -1,
+    googleId: -1,
+    userEmail: "",
 }
 
 const swapReducer = ( state = initialState, action) => {
@@ -16,14 +19,39 @@ const swapReducer = ( state = initialState, action) => {
         //         isLoggedIn,
         //     }
         // }
+        case types.VERIFY_USER: {
+            console.log('action.payload.userInfo within swapReducer:', action.payload.userInfo)
+            let { currentName,  userId, googleId, userEmail } = state;
 
-        case types.CURRENT_USER: {
-            let { isLoggedIn, currentUser } = state;
-            
-            isLoggedIn = true;
+            currentName = action.payload.userInfo.user_name;
+            userId = action.payload.userInfo.userId;
+            googleId = action.payload.userInfo.googleId;
+            userEmail = action.payload.userInfo.email;
+
             return {
                 ...state,
-                isLoggedIn,
+                currentName,
+                userId,
+                googleId,
+                userEmail
+            }
+        }
+
+        case types.CURRENT_USER: {
+            console.log('action.payload.userInfo within swapReducer:', action.payload.userInfo)
+            let { currentName,  userId, googleId, userEmail } = state;
+
+            currentName = action.payload.userInfo.user_name;
+            userId = action.payload.userInfo.userId;
+            googleId = action.payload.userInfo.googleId;
+            userEmail = action.payload.userInfo.email;
+
+            return {
+                ...state,
+                currentName,
+                userId,
+                googleId,
+                userEmail
             }
         }
 
@@ -31,3 +59,5 @@ const swapReducer = ( state = initialState, action) => {
             return state;
     }
 }
+
+export default swapReducer;
